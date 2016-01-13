@@ -21,3 +21,8 @@ type PrecedenceGraph = [Precedence]
 
 data Parser a = Null | Pure a
   deriving (Eq, Show, Functor)
+
+instance Applicative Parser where
+  pure = Pure
+  Pure f <*> Pure x = Pure $ f x
+  _ <*> _ = Null
