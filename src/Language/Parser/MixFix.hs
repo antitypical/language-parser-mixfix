@@ -18,5 +18,5 @@ data Precedence = Precedence (Fixity -> [Operator]) [Precedence]
 
 type PrecedenceGraph = [Precedence]
 
-operations :: Precedence -> Fixity -> [Operator]
-operations (Precedence o s) = o
+operators :: Precedence -> Fixity -> [Operator]
+operators (Precedence o s) = o
