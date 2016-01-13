@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveFunctor #-}
 module Language.Parser.MixFix where
 
+import Control.Applicative
 import Numeric.Natural
 
 data Associativity = LeftA | RightA | NonA
@@ -26,3 +27,8 @@ instance Applicative Parser where
   pure = Pure
   Pure f <*> Pure x = Pure $ f x
   _ <*> _ = Null
+
+instance Alternative Parser where
+  empty = Null
+  Null <|> r = r
+  l <|> _ = l
