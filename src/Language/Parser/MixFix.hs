@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveFunctor #-}
 module Language.Parser.MixFix where
 
 import Numeric.Natural
@@ -19,3 +20,4 @@ data Precedence = Precedence { operators :: Fixity -> [Operator], successorNodes
 type PrecedenceGraph = [Precedence]
 
 data Parser a = Null
+  deriving (Eq, Show, Functor)
