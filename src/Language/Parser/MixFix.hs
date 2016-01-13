@@ -14,6 +14,6 @@ data Operator = Operator { fixity :: Fixity, arity :: Natural, nameParts :: [Str
 ifThenElse :: Operator
 ifThenElse = Operator Prefix 2 [ "if", "then", "else" ]
 
-data Precedence = Precedence ((Fixity -> [Operator]) -> [Precedence])
+data Precedence = Precedence (Fixity -> [Operator]) [Precedence]
 
 type PrecedenceGraph = [Precedence]
