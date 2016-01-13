@@ -17,3 +17,6 @@ ifThenElse = Operator Prefix 2 [ "if", "then", "else" ]
 data Precedence = Precedence (Fixity -> [Operator]) [Precedence]
 
 type PrecedenceGraph = [Precedence]
+
+operations :: Precedence -> Fixity -> [Operator]
+operations (Precedence o s) = o
