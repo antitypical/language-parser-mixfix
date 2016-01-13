@@ -36,3 +36,12 @@ instance Alternative Parser where
 between :: Parser a -> [String] -> Parser [a]
 _ `between` [] = Pure []
 p `between` (name : names) = (:) <$> p <*> p `between` names
+
+
+data Expr = Expr Precedence Ex
+
+data Ex = Ex Precedence Associativity
+
+data In = In (Natural, Operator) [Expr]
+
+data Out = Similar Ex | Tighter Expr
