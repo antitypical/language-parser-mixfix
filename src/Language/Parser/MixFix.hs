@@ -32,3 +32,7 @@ instance Alternative Parser where
   empty = Null
   Null <|> r = r
   l <|> _ = l
+
+between :: Parser a -> [String] -> Parser [a]
+_ `between` [] = Pure []
+p `between` (name : names) = (:) <$> p <*> p `between` names
