@@ -10,3 +10,6 @@ data Fixity = Prefix | Postfix | Infix Associativity | Closed
 
 data Operator = Operator { fixity :: Fixity, arity :: Natural, nameParts :: [String] }
   deriving (Eq, Show)
+
+ifThenElse :: Operator
+ifThenElse = Operator Prefix 2 [ "if", "then", "else" ]
