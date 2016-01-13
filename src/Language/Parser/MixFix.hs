@@ -19,5 +19,5 @@ data Precedence = Precedence { operators :: Fixity -> [Operator], successorNodes
 
 type PrecedenceGraph = [Precedence]
 
-data Parser a = Null
+data Parser a = Null | Pure a
   deriving (Eq, Show, Functor)
