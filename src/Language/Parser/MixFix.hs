@@ -20,3 +20,6 @@ type PrecedenceGraph = [Precedence]
 
 operators :: Precedence -> Fixity -> [Operator]
 operators (Precedence o s) = o
+
+successorNodes :: Precedence -> [Precedence]
+successorNodes (Precedence o s) = s
